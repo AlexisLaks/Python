@@ -1,0 +1,479 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "slide"
+    }
+   },
+   "source": [
+    "# Control flow statements\n",
+    "\n",
+    "The control flow statements are used for :"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "source": [
+    " * executing code only under some conditional test (<span style=\"color:green\"><tt><b> if</b></tt></span>, <span style=\"color:green\"><tt><b> else</b></tt></span> and <span style=\"color:green\"><tt><b> elif</b></tt></span> statements)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "source": [
+    "* repeating code (<span style=\"color:green\"><tt><b> for</b></tt></span>, <span style=\"color:green\"><tt><b> while</b></tt></span>, <span style=\"color:green\"><tt><b> break</b></tt></span> and <span style=\"color:green\"><tt><b> continue</b></tt></span> statements)\n",
+    "\n",
+    "-------------------------"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "slide"
+    }
+   },
+   "source": [
+    "## 1. <span style=\"color:green\"><tt><b> if</b></tt></span>, <span style=\"color:green\"><tt><b> else</b></tt></span>, <span style=\"color:green\"><tt><b> elif</b></tt></span> statements\n",
+    "You can execute this example of the cell below.\n",
+    "\n",
+    "You can also modify this code and run it again."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {
+    "collapsed": true,
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter your age :  22\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Price is 10 €\n"
+     ]
+    }
+   ],
+   "source": [
+    "age = int(input('Enter your age : '))\n",
+    "\n",
+    "if age <= 17 :\n",
+    "    price = 0\n",
+    "elif age < 65 :\n",
+    "    price = 10\n",
+    "else :\n",
+    "    price = 5\n",
+    "print(\"Price is \" + str(price) + \" €\")        \n",
+    "        "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "source": [
+    "**Note** :\n",
+    "* the colon (:) at the end of <span style=\"color:green\"><tt><b> if</b></tt></span>, <span style=\"color:green\"><tt><b> else</b></tt></span>, <span style=\"color:green\"><tt><b> elif</b></tt></span> statements"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "source": [
+    "* the TABulation at the beginning of the next line"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "### Exercice 1 :\n",
+    "Now the price for people aged between 18 and 25 is 7€. Change the code below and run it"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {
+    "collapsed": true,
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter your age :  22\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Price is 7 €\n"
+     ]
+    }
+   ],
+   "source": [
+    "age = int(input('Enter your age : '))\n",
+    "\n",
+    "if age <= 17 :\n",
+    "    price = 0\n",
+    "elif (age >= 18 and age <=25):\n",
+    "    price = 7\n",
+    "elif age < 65 :\n",
+    "    price = 10\n",
+    "else :\n",
+    "    price = 5\n",
+    "print(\"Price is \" + str(price) + \" €\")        \n",
+    "        "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "slide"
+    }
+   },
+   "source": [
+    "## 2. <span style=\"color:green\"><tt><b> for</b></tt></span> statement\n",
+    "### Example and exercise\n",
+    "Example below (run it) and exercise (complete it).\n",
+    " \n",
+    " *Hints :* \n",
+    " * <span style=\"color:green\"><tt><b> a_string[0:-4]</b></tt></span> *returns* <span style=\"color:green\"><tt><b> a_string</b></tt></span> *without the last 4 letters *\n",
+    " * <span style=\"color:green\"><tt><b> a_string[-4:]</b></tt></span> *returns the last 4 letters* "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "foo_V2.txt\n",
+      "foo_V2.txt\n",
+      "foo_V2.txt\n",
+      "foo_V2.txt\n",
+      "foo_V2.txt\n"
+     ]
+    }
+   ],
+   "source": [
+    "file_list = [\"foo.txt\",\"bar.txt\",\"tata.txt\",\"toto.txt\",\"titi.txt\"]\n",
+    "for file_name in file_list:\n",
+    "    file_name = \"foo_V2.txt\"\n",
+    "    print(file_name)\n",
+    "    # COMPLETE AND RENAME ALL THE FILES AS \"foo_V2.txt\"\n",
+    "    "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "### Exercice \n",
+    "Do the same thing but use an index in the <span style=\"color:green\"><tt><b> for</b></tt></span> statement (use <span style=\"color:green\"><tt><b> range</b></tt></span> and <span style=\"color:green\"><tt><b> len</b></tt></span> statements) "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "foo_V2.txt\n",
+      "foo_V2.txt\n",
+      "foo_V2.txt\n",
+      "foo_V2.txt\n",
+      "foo_V2.txt\n"
+     ]
+    }
+   ],
+   "source": [
+    "for i in range(0,len(file_list)):\n",
+    "    file_list[i] = \"foo_V2.txt\"\n",
+    "    print(file_list[i])"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "### Exercise 2\n",
+    "Complete the code below. The value of the <span style=\"color:green\"><tt><b> n_count</b></tt></span> variable must be the number of elements of the <span style=\"color:green\"><tt><b> tab</b></tt></span> array whose value is less than <span style=\"color:green\"><tt><b> test_val</b></tt></span>. *Hint : don't forget the colons (:)*"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {
+    "collapsed": true,
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "4950666\n",
+      "Elapsed time : 3.2700119018554688\n"
+     ]
+    }
+   ],
+   "source": [
+    "# COMPLETE THE CODE ON THE INDICATED LINES\n",
+    "import numpy as np\n",
+    "import numpy.random as nr\n",
+    "import time\n",
+    "\n",
+    "tab_size = 10000000\n",
+    "test_val=50\n",
+    "val_max =100\n",
+    "tab=nr.randint(0,val_max+1,tab_size) # random array\n",
+    "s_time = time.time()           # beginning time\n",
+    "n_count = 0\n",
+    "for val in tab:         \n",
+    "    if val < test_val:      \n",
+    "        n_count = n_count+1\n",
+    "e_time = time.time()           # end time\n",
+    "print(n_count)\n",
+    "print('Elapsed time : ' + str(e_time-s_time))\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "### Exercise 3\n",
+    "Replace the <span style=\"color:green\"><tt><b> for</b></tt></span> loop by a command using a <span style=\"color:green\"><tt><b> numpy</b></tt></span> function. Observe the difference of speed !"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# COMPLETE THE CODE ON THE INDICATED LINES\n",
+    "import numpy as np\n",
+    "import numpy.random as nr\n",
+    "import time\n",
+    "\n",
+    "tab_size = 10000000\n",
+    "test_val=50\n",
+    "val_max =100\n",
+    "tab=nr.randint(0,val_max+1,tab_size) # random array\n",
+    "s_time = time.time()           # beginning time\n",
+    "n_count = 0\n",
+    "for val in tab:         # COMPLETE this line\n",
+    "    if val < test_val:      # COMPLETE this line\n",
+    "        n_count = n_count+1\n",
+    "e_time = time.time()           # end time\n",
+    "print(n_count)\n",
+    "print('Elapsed time : ' + str(e_time-s_time))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "source": [
+    "Hint : use <span style=\"color:green\"><tt><b> nonzero()</b></tt></span> array function"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "slide"
+    }
+   },
+   "source": [
+    "## 3.  <span style=\"color:green\"><tt><b> while</b></tt></span> and <span style=\"color:green\"><tt><b> break</b></tt></span> statements\n",
+    "Somtimes you need another kind of loop, for exemple and \"infinite\" loop\n",
+    "\n",
+    "### Example : Captcha\n",
+    "\n",
+    "Run the code below and enter the captcha\n",
+    "![Captcha.jpg](Captcha.jpg \"CAPTCHA\")\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true,
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "current_answer = \"wrong\"\n",
+    "right_answer = \"smwm\"\n",
+    "while current_answer != right_answer:\n",
+    "    current_answer = input('Type the characters above : ')\n",
+    "print(\"Right answer !\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "### Exercise 4 : \n",
+    "Complete the code below, print a message when the answer is right and another one when the answer is wrong. Use the <span style=\"color:green\"><tt><b> break</b></tt></span> statement to get out of the loop when the answer is correct. "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true,
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "right_answer = \"smwm\"\n",
+    "while True :\n",
+    "    current_answer = input('Type the characters above : ')\n",
+    "    if                    # COMPLETE this line\n",
+    "        print()           # COMPLETE this line\n",
+    "                          # COMPLETE this line\n",
+    "    else :\n",
+    "        print()           # COMPLETE this line\n",
+    "            "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "slide"
+    }
+   },
+   "source": [
+    "## 4. <span style=\"color:green\"><tt><b> continue</b></tt></span> statement\n",
+    "The <span style=\"color:green\"><tt><b> continue</b></tt></span> statement is used for skipping the end of an iteration and going to the next one.\n",
+    "In this example you can skip a form in pressing 'enter'."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true,
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "nb_of_forms =3\n",
+    "person_list = []\n",
+    "\n",
+    "print(\"Fill the \", nb_of_forms,\"forms\")\n",
+    "\n",
+    "for ind in range(0, nb_of_forms):\n",
+    "    temp = input('Enter name '+str(ind)+' (return if none):')\n",
+    "    if temp == '' :\n",
+    "        continue\n",
+    "    person = {'name':temp}\n",
+    "    temp = int(input('Enter age '+str(ind)+' : '))\n",
+    "    person['age']= temp\n",
+    "    person_list.append(person)    \n",
+    "print(person_list) \n",
+    "    "
+   ]
+  }
+ ],
+ "metadata": {
+  "celltoolbar": "Slideshow",
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.7.0"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}

@@ -1,0 +1,701 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "slide"
+    }
+   },
+   "source": [
+    "\n",
+    "\n",
+    "# Functions\n",
+    "## 1. Function definition\n",
+    "### 1.1 Defining a simple function (<span style=\"color:green\"><tt><b>def</b></tt></span> statement)\n",
+    "You often need to do the same thing again, but with another set of parameters\n",
+    "\n",
+    "What you need is defining a function, with the <span style=\"color:green\"><tt><b>def</b></tt></span> statement  \n",
+    "\n",
+    "For example the next function prints a trapezoid area, given its bases and height"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true,
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "def print_trapezoid_area(base1,base2,height): #function definition\n",
+    "    print((base1+base2)/2*height)\n",
+    "\n",
+    "print_trapezoid_area(3,4,2)                   #calling the function"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "### 1.2. Returning a value (<span style=\"color:green\"><tt>return</tt></span> statement)\n",
+    "Functions can also return a value, with the <span style=\"color:green\"><tt><b> return</b></tt></span> statement\n",
+    "\n",
+    "Like in this example"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true,
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "def trapezoid_area(base1,base2,height):   # function definition\n",
+    "    return (base1+base2)/2*height         # returns a value\n",
+    "\n",
+    "print(trapezoid_area(3,4,2))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "### Exercise\n",
+    "Write a function wich returns the volume of an ellispoid, and test it"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "### 1.3. Default arguments \n",
+    "You can defined a default argument that is used if it is not defined when function is called.\n",
+    "\n",
+    "You just have to add the default value after a <span style=\"color:green\"><tt><b> =</b></tt></span> symbol in the <span style=\"color:green\"><tt><b> def</b></tt></span> statement.\n",
+    "\n",
+    "For example :"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true,
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "def trapezoid_area(base1,base2,height=1):\n",
+    "    return (base1+base2)/2*height\n",
+    "\n",
+    "print(trapezoid_area(3,4,2))\n",
+    "print(trapezoid_area(3,4))     # default argument of \"height\" (1) is used"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "slide"
+    }
+   },
+   "source": [
+    "## 2. Calling a function \n",
+    "### 2.1 Calling a function with \"keyword arguments\" (and positional arguments)\n",
+    "If you need it, when you call a function, you can specify arguments with a keyword instead of ordering them. Use the keyword given by the name of the arguments in the function definition."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true,
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "def trapezoid_area(base1,base2,height):   #function definition\n",
+    "    return (base1+base2)/2*height         \n",
+    "\n",
+    "print(trapezoid_area(height =2, base2= 4, base1=3))  # keyword arguments\n",
+    "#print(trapezoid_area(height =2,4,3))  # ERROR : positional arguments must be before key arguments\n",
+    "print(trapezoid_area(3,height=2, base2=4))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "### 2.2 Unpacking arguments\n",
+    "If the function takes multiple arguments, it may be convenient to define arguments in a list or a tuple or even a dictionary. When the function is called, you need to \"unpack\" the arguments with :\n",
+    "* <span style=\"color:green\"><tt><b> \\* </b></tt></span>  operator for positional arguments\n",
+    "* <span style=\"color:green\"><tt><b> \\*\\*</b></tt></span> operator for keyword arguments"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true,
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "def trapezoid_area(base1,base2,height):   #function definition\n",
+    "    return (base1+base2)/2*height         \n",
+    "\n",
+    "arg_list = [3, 4, 2]\n",
+    "arg_dic = {'base1':3,'base2':4,'height':2,}\n",
+    "print(trapezoid_area(*arg_list))  # unpacking arguments list\n",
+    "print(trapezoid_area(**arg_dic))  #unpacking arguments dictionary"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "The key of the unpacked dictionnary must have the **same name** as the function input argument keyword. This code retruns an error :"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true,
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "def trapezoid_area(base1,base2,height):   #function definition\n",
+    "    return (base1+base2)/2*height         \n",
+    "\n",
+    "arg_list = [3, 4, 2]\n",
+    "arg_dic = {'base1':3,'base2':4,'NEW':2,}\n",
+    "print(trapezoid_area(*arg_list))  # unpacking arguments list\n",
+    "print(trapezoid_area(**arg_dic))  #unpacking arguments dictionary"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "slide"
+    }
+   },
+   "source": [
+    "## 3. Variable number of arguments\n",
+    "You can define a function with a variable number of argument, with these special forms of arguments :\n",
+    "\n",
+    "* <span style=\"color:green\"><tt><b> *args</b></tt></span> : any number of positional arguments packed into a tuple\n",
+    "* <span style=\"color:green\"><tt><b> **kwargs</b></tt></span> : any number of keyword arguments packed into a dictionary\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "def variable_args(*args, **kwargs):   # function definition with variable number of arguments\n",
+    "    print('args is', args)\n",
+    "    print('kwargs is', kwargs)\n",
+    "\n",
+    "variable_args('one', 'two', x=1, y=2, z=3)\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "slide"
+    }
+   },
+   "source": [
+    "## 4. Scope of variables\n",
+    "### 4.1 Local variables in functions\n",
+    "The variable defined in a function is local, even if it has the same name as another variable outside the function."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true,
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "def func_var_are_local(arg1) :\n",
+    "    i=0\n",
+    "    while arg1[i]!='test':\n",
+    "        i+=1\n",
+    "    print(\"In the function, i is \",i)\n",
+    "\n",
+    "i=1\n",
+    "func_var_are_local([1,2,3,'test',12])\n",
+    "print('Outside the function, i is',i)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "### 4.2 Global variables may be modified anywhere !!!"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true,
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "def try_to_modify_global(h=0):\n",
+    "    my_list.append(666)\n",
+    "\n",
+    "my_list=['foo']\n",
+    "print(my_list)\n",
+    "try_to_modify_global()\n",
+    "print(my_list)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "### 4.3 Local variables can't be accessed by a called function\n",
+    "Local variables inside a function can't be accessed by another function called by the first function"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true,
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "def main_function():\n",
+    "    my_list=['foo']\n",
+    "    print(my_list)\n",
+    "    try_to_modify_local()\n",
+    "    print(my_list)\n",
+    "    \n",
+    "def try_to_modify_local():\n",
+    "    my_list.append(666)    \n",
+    "\n",
+    "main_function()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "**Exception** : if the called function is a **nested function**, it can modify local variable :"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true,
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "def main_function():\n",
+    "    def nested_try_to_modify_local():\n",
+    "        my_list.append(666)    \n",
+    "\n",
+    "    my_list=['foo']\n",
+    "    print(my_list)\n",
+    "    nested_try_to_modify_local()\n",
+    "    print(my_list)\n",
+    "    \n",
+    "\n",
+    "main_function()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "### 4.4 More complex issues (optional)\n",
+    "(*adapted from Stackoverflow*)\n",
+    "\n",
+    "Variable scopes inside a class are a bit more complicated :"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true,
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "x = 100\n",
+    "print(\"1. Global x:\", x)\n",
+    "class Test(object):\n",
+    "    y = x\n",
+    "    print(\"2. Enclosed y:\", y)\n",
+    "    x = x + 1 \n",
+    "    print(\"3. Enclosed x:\", x)\n",
+    "    z = x\n",
+    "\n",
+    "    def method(self):\n",
+    "        print(\"4. Enclosed self.x:\", self.x)\n",
+    "        print(\"5. Global x:\", x)\n",
+    "        try:\n",
+    "            print(y)\n",
+    "        except NameError as err:\n",
+    "            print(\"6.\", err)\n",
+    "        print(\"7. Enclosed self.y:\", self.y)\n",
+    "        print(\"8. Enclosed self.z:\", self.z)\n",
+    "\n",
+    "        \n",
+    "    def method_local_ref(self):\n",
+    "        try:\n",
+    "            print(x)\n",
+    "        except UnboundLocalError as err:\n",
+    "            print(\"9.\", err)\n",
+    "        x = 200 \n",
+    "        print(\"10. Local x:\", x)\n",
+    "\n",
+    "inst = Test()\n",
+    "inst.method()\n",
+    "inst.method_local_ref()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "slide"
+    }
+   },
+   "source": [
+    "## 5. Are arguments modified by the function ?\n",
+    "This is a good question."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "source": [
+    "**The answer** : it depends on the type of the argument. Is it mutable or not ? It depends also on how is modified the argument inside the function : you have to remember the lesson on the meaning of the assigment (<span style=\"color:green\"><tt><b> =</b></tt></span> symbol)\n",
+    "\n",
+    "See an example below"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true,
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "## example about modifying arguments ##\n",
+    "def try_to_modify(x, y, z):\n",
+    "    x +=1\n",
+    "    y.append(42)\n",
+    "    z = [99] # this is a new reference (not a modification)\n",
+    "    print(x,y,z)\n",
+    "\n",
+    "a = 11    # immutable variable\n",
+    "b = [22]  # mutable variable\n",
+    "c = [33]\n",
+    "print(a,b,c)\n",
+    "try_to_modify(a, b, c)\n",
+    "print(a,b,c)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "###  Exercice\n",
+    "Add arguments to the function to test if the following types can be modified by the function :\n",
+    "* dictionaries\n",
+    "* sets\n",
+    "* tuples\n",
+    "* ... user defined type"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "slide"
+    }
+   },
+   "source": [
+    "## 6. Recursive function\n",
+    "A function can call itself, it is named a recursive call. For example you can use recursion for cumputing factorials, like this :"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true,
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "def factorial(n):\n",
+    "    if n==0 or n==1 :\n",
+    "        return 1\n",
+    "    else:\n",
+    "        return n*factorial(n-1)\n",
+    "\n",
+    "factorial(8)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "slide"
+    }
+   },
+   "source": [
+    "### Exercise 1 : \n",
+    "1. Write the function <span style=\"color:green\"><tt><b> count_words</b></tt></span> which takes a string for argument and returns the number of words in this string. *Hint : the correct answer is 67* \n",
+    "&nbsp;<br/>\n",
+    "1. Write the function <span style=\"color:green\"><tt><b> ordered_words</b></tt></span> which returns the list of the words of the input argument string :\n",
+    "   1. in lexical order **without** taking account of the letter case in the order, but keep the initial case of each word. *Hint : use the <span style=\"color:green\"><tt><b> key</b></tt></span> argument of the <span style=\"color:green\"><tt><b> sorted</b></tt></span> function. Be carefull of the type of the <span style=\"color:green\"><tt><b> key</b></tt></span> argument.*\n",
+    "   1. in string length order \n",
+    "&nbsp;<br/>\n",
+    "1. Write a function whichs returns the more frequent word in the input string. If two words or more appear the same number of times, choose one.\n",
+    "\n",
+    "**Complete the code below and uncomment the last lines when needed**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true,
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "test_string = \"Python is probably one of the few programming languages which is both simple and powerful. This is good for beginners as well as for experts, and more importantly, is fun to program with. This book aims to help you learn this wonderful language and show how to get things done quickly and painlessly - in effect 'The Anti-venom to your programming problems'. Excerpt from A byte of Python\"\n",
+    "\n",
+    "def count_words(string):\n",
+    "                        # COMPLETE HERE(several lines)\n",
+    "    return              # COMPLETE HERE\n",
+    "\n",
+    "#def  # ... uncomment and COMPLETE HERE\n",
+    "                        # COMPLETE HERE\n",
+    "\n",
+    "def ordered_words(string):\n",
+    "                        # COMPLETE HERE (several lines)\n",
+    "    return              # COMPLETE HERE\n",
+    "\n",
+    "def most_frequent_word(string):\n",
+    "                        # COMPLETE HERE (several lines)\n",
+    "    return              # COMPLETE HERE\n",
+    "\n",
+    "#print(\"Number of words : \", count_words(test_string))\n",
+    "#print(\"Ordered word list : \", ordered_words(test_string))\n",
+    "#print(\"One of the most frequent words is '\"+most_frequent_word(test_string)+\"'\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "### Exercice 2\n",
+    "Write a function which describes properties of an array of numbers : number of dimensions, size of dimensions, global mean and standard deviation, maximum and minimum.\n",
+    "Test the function with a 100x100x1000 random array"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true,
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "import numpy as np\n",
+    "import numpy.random as nr\n",
+    "\n",
+    "nr.randn()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "### Exercice 3 : use a scalar function on a vector\n",
+    "Is it possible to call the <span style=\"color:green\"><tt><b> price</b></tt></span> function defined below with a list as argument ?\n",
+    "\n",
+    "Find four ways to do it, without modifying the function. \n",
+    "\n",
+    "*Hint :*\n",
+    "1. *make a loop*\n",
+    "1. *use map()*\n",
+    "1. *use the \"list comprehension\" with the syntax :* [func1(el) <span style=\"color:green\"><b>for</b></span> el <span style=\"color:green\"><b>in</b></span>  a_list ]\n",
+    "1. *look at numpy library, about 'vector'* \n",
+    "\n",
+    "Print the sum of the prices"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true,
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "def price(age) :\n",
+    "    if age <= 17 :\n",
+    "        output = 0\n",
+    "    elif age < 65 :\n",
+    "        output = 10\n",
+    "    else :\n",
+    "        output = 5\n",
+    "    return output\n",
+    "\n",
+    "#price([2, 43,56, 77, 6]) #ERROR\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "## Exercise 4\n",
+    "Write a recursive function which sorts a list with the merge sort algorithm and test it."
+   ]
+  }
+ ],
+ "metadata": {
+  "celltoolbar": "Slideshow",
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.6.1"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}
